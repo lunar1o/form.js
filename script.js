@@ -41,14 +41,14 @@ function validaCampoNumerico(elemento){
     });
 
 }
-function validaEmail(email){
+function validaEmail(elemento){
 
     elemento.addEventListener('focusout', function(event) {
 
         event.preventDefault();
 
-        const UfValido =  /^[0,9]{,2}/[a-z];
-        if(this.value.match(UfValido)) {
+        const emailValido =  /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?/i;
+        if(this.value.match(emailValido)) {
             document.querySelector('.mensagem').innerHTML = "";
             this.classList.remove('erro');
             this.parentNode.classList.remove('erro');
@@ -62,14 +62,14 @@ function validaEmail(email){
     });
 
 }
-function validaUf(uf){
+function validaUf(elemento){
 
     elemento.addEventListener('focusout', function(event) {
 
         event.preventDefault();
 
-        const emailValido = /^[a-z0-9.]+;
-        if(this.value.match(emailValido)) {
+        const ufValido = /^[A-Za-z]{2}$/;
+        if(this.value.match(ufValido)) {
             document.querySelector('.mensagem').innerHTML = "";
             this.classList.remove('erro');
             this.parentNode.classList.remove('erro');
@@ -90,13 +90,13 @@ let camposNumericos = document.querySelectorAll('input.numero');
 let camposEmail = document.querySelectorAll('input.email');
 let camposUf = document.querySelectorAll('input.uf');
 
-for( let emFoco of camposObrigatorios)[A-Z];
+for( let emFoco of camposObrigatorios){
     validaCampo(emFoco);
-
-for( let emFoco of camposNumericos) /^[0,9]{2}/;
+}
+for( let emFoco of camposNumericos) {
     validaCampoNumerico(emFoco);
+}
 
-
-for( let emFoco of camposUf) /^[A-Za-z]{2}/;
+for( let emFoco of camposUf){
     validaEmail(emFoco);
-
+}
